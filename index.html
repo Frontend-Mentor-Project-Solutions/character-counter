@@ -1,35 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Character counter</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  Analyze your text in real-time.
+    <title>Frontend Mentor | Character counter</title>
+  </head>
+  <body>
+    <header>
+      <img src="assets/images/logo-dark-theme.svg" alt="" />
 
-  Start typing here… (or paste your text)
+      <button>theme switcher</button>
+    </header>
 
-  Exclude Spaces
-  Set Character Limit
+    <main>
+      <h1>Analyze your text in real-time.</h1>
 
-  Approx. reading time: <!-- Insert number --> minutes
+      <textarea name="" id=""></textarea>
 
-  <!-- Insert number -->
-  Total Characters
+      <div role="group" aria-label="Options">
+        <label>
+          <input type="checkbox" name="exclude-spaces" />
+          Exclude Spaces
+        </label>
 
-  <!-- Insert number -->
-  Word Count
+        <label>
+          <input type="checkbox" name="character-limit" />
+          Set Character Limit
+        </label>
 
-  <!-- Insert number -->
-  Sentence Count
+        <output for="text-input"> Approx. reading time: &lt;1 minute </output>
+      </div>
 
-  Letter Density
-  No characters found. Start typing to see letter density.
+      <section>
+        <h2>Text Statistics</h2>
 
-</body>
+        <article>
+          <h3>Total Characters</h3>
+          <p>278</p>
+        </article>
+
+        <article>
+          <h3>Word Count</h3>
+          <p>39</p>
+        </article>
+
+        <article>
+          <h3>Sentence Count</h3>
+          <p>04</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Letter Density</h2>
+
+        <p>No characters found. Start typing to see letter density.</p>
+
+        <ol>
+          <li>
+            <span>E</span>
+            <meter value="40" min="0" max="249">40</meter>
+            <span>40 (16.06%)</span>
+          </li>
+          <li>
+            <span>I</span>
+            <meter value="29" min="0" max="249">29</meter>
+            <span>29 (11.65%)</span>
+          </li>
+          <li>
+            <span>T</span>
+            <meter value="28" min="0" max="249">28</meter>
+            <span>28 (11.24%)</span>
+          </li>
+        </ol>
+      </section>
+    </main>
+  </body>
 </html>
+
+<!-- 
+
+<ol>
+    <li>
+      <span>E</span>
+      <meter value="40" min="0" max="249">40</meter>
+      <span>40 (16.06%)</span>
+    </li>
+    <li>
+      <span>I</span>
+      <meter value="29" min="0" max="249">29</meter>
+      <span>29 (11.65%)</span>
+    </li>
+    <li>
+      <span>T</span>
+      <meter value="28" min="0" max="249">28</meter>
+      <span>28 (11.24%)</span>
+    </li>
+  </ol>
+
+    <details>
+    <summary>See more</summary>
+    <ol>
+      <li></li>
+      <li></li>
+    </ol>
+  </details>
+
+-->
