@@ -74,7 +74,7 @@
 body {
   font-family: "DM Sans", sans-serif;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text);
   background-image: url("../assets/images/bg-dark-theme.png");
 }
@@ -82,16 +82,96 @@ body {
 h1,
 .h1 {
   font-size: clamp(2.5rem, 0rem + 8.333vw, 4rem);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h3,
 .h3,
 textarea {
   font-size: 1.25rem;
+  font-weight: 400;
+}
+
+/* layouts */
+
+.page-layout {
+  --content-max-width: 990px;
+  --narrow-max-width: 510px;
+  --minimum-content-padding: clamp(1rem, -0.667rem + 5.556vw, 2rem);
+
+  --content: minmax(
+    0,
+    calc((var(--content-max-width) - var(--narrow-max-width)) * 0.5)
+  );
+  --narrow: min(
+    var(--narrow-max-width),
+    100% - var(--minimum-content-padding) * 2
+  );
+
+  display: grid;
+  grid-template-columns:
+    minmax(var(--minimum-content-padding), 1fr)
+    [content-start]
+    var(--content)
+    [narrow-start]
+    var(--narrow)
+    [narrow-end]
+    var(--content)
+    [content-end]
+    minmax(var(--minimum-content-padding), 1fr);
+
+  > * {
+    grid-column: content;
+  }
+}
+
+.narrow {
+  grid-column: narrow;
+}
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  > * {
+    flex-grow: 1;
+    flex-basis: calc((35rem - 100%) * 999);
+  }
+}
+
+.input-area {
+  display: grid;
+  grid-template-columns: auto auto;
+
+  textarea {
+    grid-column: 1 / -1;
+  }
+}
+
+/* components */
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* utils */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

@@ -16,51 +16,56 @@
     <title>Frontend Mentor | Character counter</title>
   </head>
   <body>
-    <header>
-      <img
-        class="logo"
-        src="assets/images/logo-dark-theme.svg"
-        alt="Character Counter Logo"
-      />
+    <main class="page-layout">
+      <header>
+        <img
+          class="logo"
+          src="assets/images/logo-dark-theme.svg"
+          alt="Character Counter Logo"
+        />
 
-      <button>theme switcher</button>
-    </header>
+        <button>theme switcher</button>
+      </header>
 
-    <main>
-      <h1>Analyze your text in real-time.</h1>
+      <h1 class="narrow">Analyze your text in real-time.</h1>
 
-      <textarea name="" id=""></textarea>
+      <section class="input-area">
+        <textarea
+          aria-label="Enter text to count characters, words, and sentences"
+          placeholder="Start typing here... (or past your text)"
+        ></textarea>
 
-      <div role="group" aria-label="Options">
-        <label>
-          <input type="checkbox" name="exclude-spaces" />
-          Exclude Spaces
-        </label>
+        <div class="options" role="group" aria-label="Options">
+          <label>
+            <input type="checkbox" name="exclude-spaces" />
+            Exclude Spaces
+          </label>
 
-        <label>
-          <input type="checkbox" name="character-limit" />
-          Set Character Limit
-        </label>
+          <label>
+            <input type="checkbox" name="character-limit" />
+            Set Character Limit
+          </label>
+        </div>
 
         <output for="text-input"> Approx. reading time: &lt;1 minute </output>
-      </div>
+      </section>
 
-      <section>
-        <h2>Text Statistics</h2>
+      <section class="switcher">
+        <h2 class="visually-hidden">Text Statistics</h2>
 
         <article>
           <h3>Total Characters</h3>
-          <p>278</p>
+          <p class="h1">278</p>
         </article>
 
         <article>
           <h3>Word Count</h3>
-          <p>39</p>
+          <p class="h1">39</p>
         </article>
 
         <article>
           <h3>Sentence Count</h3>
-          <p>04</p>
+          <p class="h1">04</p>
         </article>
       </section>
 
