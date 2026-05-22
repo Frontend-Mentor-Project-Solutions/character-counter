@@ -61,6 +61,10 @@
   .logo {
     content: url("../assets/images/logo-light-theme.svg");
   }
+
+  .theme-toggle img {
+    content: url("../assets/images/icon-moon.svg");
+  }
 }
 
 [data-theme="dark"] {
@@ -166,8 +170,19 @@ textarea {
 /* components */
 
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5rem;
+  align-items: center;
   justify-content: space-between;
+  padding-block-start: clamp(1rem, 0.118rem + 2.941vw, 2rem);
+}
+
+.theme-toggle {
+  border-radius: 8px;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
 }
 
 h1 {
@@ -241,6 +256,9 @@ input[type="checkbox"] {
 }
 
 article {
+  color-scheme: light;
+  color: var(--text);
+
   display: grid;
   gap: 0.875rem;
   background-color: var(--bg-accent-1);
@@ -277,6 +295,7 @@ article h3 {
   display: grid;
   grid-template-columns: auto 1fr auto;
   column-gap: 1rem;
+  row-gap: 0.25rem;
 
   li {
     display: grid;
