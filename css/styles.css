@@ -44,7 +44,7 @@
   );
 
   --primary: var(--clr-purple-400);
-  --primary-hover: var(--clr-purple-500);
+  --primary-active: var(--clr-purple-500);
 
   --error: light-dark(var(--clr-orange-800), var(--clr-orange-500));
 }
@@ -144,6 +144,10 @@ textarea {
   }
 }
 
+.stack > * + * {
+  margin-block-start: clamp(2.5rem, 1rem + 3.125vw, 3rem);
+}
+
 .input-area {
   display: grid;
   grid-template-columns: auto auto 1fr;
@@ -168,6 +172,24 @@ header {
 
 h1 {
   text-align: center;
+}
+
+textarea {
+  resize: none;
+  background-color: var(--bg-main);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+
+  &::placeholder {
+    color: currentColor;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid var(--primary-active);
+    outline-offset: -2px;
+  }
 }
 
 label {
@@ -224,10 +246,27 @@ article {
   background-color: var(--bg-accent-1);
   padding-inline: 0.75rem;
   padding-block: 1.5rem;
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
 
-  h3 {
-    order: 2;
+  &:nth-of-type(1) {
+    background-image: url("../assets/images/pattern-character-count.svg");
   }
+
+  &:nth-of-type(2) {
+    background-color: var(--bg-accent-2);
+    background-image: url("../assets/images/pattern-word-count.svg");
+  }
+
+  &:nth-of-type(3) {
+    background-color: var(--bg-accent-3);
+    background-image: url("../assets/images/pattern-sentence-count.svg");
+  }
+}
+
+article h3 {
+  order: 2;
 }
 
 /* utils */
