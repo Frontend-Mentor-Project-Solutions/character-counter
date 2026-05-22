@@ -72,25 +72,35 @@
       <section>
         <h2>Letter Density</h2>
 
-        <p>No characters found. Start typing to see letter density.</p>
+        <div class="letter-density-wrapper">
+          <p class="empty">
+            No characters found. Start typing to see letter density.
+          </p>
 
-        <ol>
-          <li>
-            <span>E</span>
-            <meter value="40" min="0" max="249">40</meter>
-            <span>40 (16.06%)</span>
-          </li>
-          <li>
-            <span>I</span>
-            <meter value="29" min="0" max="249">29</meter>
-            <span>29 (11.65%)</span>
-          </li>
-          <li>
-            <span>T</span>
-            <meter value="28" min="0" max="249">28</meter>
-            <span>28 (11.24%)</span>
-          </li>
-        </ol>
+          <ul class="bars" role="list">
+            <li>
+              <span class="letter">E</span>
+
+              <div class="bar" style="--pct: 40%"></div>
+
+              <span class="percentage">40 (16.06%)</span>
+            </li>
+            <li>
+              <span class="letter">I</span>
+
+              <div class="bar" style="--pct: 70%"></div>
+
+              <span class="percentage">29 (11.65%)</span>
+            </li>
+            <li>
+              <span class="letter">T</span>
+
+              <div class="bar" style="--pct: 20%"></div>
+
+              <span class="percentage">28 (11.24%)</span>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
   </body>

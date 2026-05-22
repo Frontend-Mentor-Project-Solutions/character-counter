@@ -248,7 +248,7 @@ article {
   padding-block: 1.5rem;
   border-radius: 12px;
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: 120% center;
 
   &:nth-of-type(1) {
     background-image: url("../assets/images/pattern-character-count.svg");
@@ -267,6 +267,43 @@ article {
 
 article h3 {
   order: 2;
+}
+
+.letter-density-wrapper {
+  margin-block: 1rem;
+}
+
+.bars {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 1rem;
+
+  li {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+
+  .bar {
+    height: 12px;
+    align-self: center;
+    background-color: var(--bg-main);
+    border-radius: 100vw;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: inherit;
+      border-radius: inherit;
+      background-color: var(--primary);
+      width: var(--pct);
+    }
+  }
+
+  .percentage {
+    justify-self: flex-end;
+  }
 }
 
 /* utils */
