@@ -1,6 +1,9 @@
 const [characterCount, wordCount, sentenceCount] =
   document.querySelectorAll("p.h1");
 const textArea = document.querySelector("textarea");
+const excludeSpacesCheckbox = document.querySelector(
+  "input[name=exclude-spaces]",
+);
 
 const graphemeSegmenter = new Intl.Segmenter(undefined, {
   granularity: "grapheme",
@@ -15,13 +18,20 @@ const countFormat = new Intl.NumberFormat(undefined, {
 });
 
 textArea.addEventListener("input", updateCounters);
+excludeSpacesCheckbox.addEventListener("change", updateCounters);
 
 function updateCounters() {
   const text = textArea.value;
 
-  characterCount.textContent = countFormat.format(
-    [...graphemeSegmenter.segment(text)].length,
-  );
+  const characters = [...graphemeSegmenter.segment(text)].filter((seg) => {
+    if (excludeSpacesCheckbox.checked) {
+      return seg.segment.trim() !== "";
+    }
+
+    return true;
+  });
+
+  characterCount.textContent = countFormat.format(characters.length);
 
   wordCount.textContent = countFormat.format(
     [...wordSegmenter.segment(text)].filter((seg) => seg.isWordLike).length,
