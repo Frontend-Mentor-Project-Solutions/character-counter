@@ -154,12 +154,22 @@ textarea {
 
 .input-area {
   display: grid;
-  grid-template-columns: auto auto 1fr;
+  grid-template-columns: auto;
   column-gap: 1.5rem;
   row-gap: 1rem;
 
-  textarea {
+  .textarea-wrapper {
     grid-column: 1 / -1;
+  }
+}
+
+@media (width > 750px) {
+  .input-area {
+    grid-template-columns: auto auto 1fr;
+  }
+
+  .input-area:has(input[name="character-limit-checkbox"]:checked) {
+    grid-template-columns: auto auto auto 1fr;
   }
 
   .reading-time {
@@ -191,6 +201,7 @@ h1 {
 
 textarea {
   resize: none;
+  width: 100%;
   background-color: var(--bg-main);
   border: 2px solid var(--border);
   border-radius: 12px;
@@ -204,6 +215,10 @@ textarea {
   &:focus-visible {
     outline: 2px solid var(--primary-active);
     outline-offset: -2px;
+  }
+
+  &:invalid {
+    border-color: var(--error);
   }
 }
 
@@ -253,6 +268,35 @@ input[type="checkbox"] {
       transform: scale(1);
     }
   }
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  width: 100%;
+  border: 1px solid var(--clr-neutral-600);
+  width: 60px;
+  border-radius: 6px;
+  padding-block: 0.25rem;
+  padding-inline-start: 0.75rem;
+  background-color: transparent;
+
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid var(--primary-active);
+    outline-offset: -2px;
+  }
+
+  &:invalid {
+    border-color: var(--error);
+  }
+}
+
+.error-message {
+  color: var(--error);
+
+  /* &::before {
+    content: url("../assets/images/icon-info.svg");
+  } */
 }
 
 article {

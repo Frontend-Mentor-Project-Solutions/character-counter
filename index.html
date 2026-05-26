@@ -33,20 +33,32 @@
       <h1 class="narrow">Analyze your text in real-time.</h1>
 
       <section class="input-area">
-        <textarea
-          aria-label="Enter text to count characters, words, and sentences"
-          placeholder="Start typing here... (or past your text)"
-        ></textarea>
+        <div class="textarea-wrapper">
+          <textarea
+            aria-label="Enter text to count characters, words, and sentences"
+            placeholder="Start typing here... (or past your text)"
+          ></textarea>
+          <span class="error-message"></span>
+        </div>
 
-        <label>
+        <label class="exclude-spaces">
           <input type="checkbox" name="exclude-spaces" />
           Exclude Spaces
         </label>
 
-        <label>
-          <input type="checkbox" name="character-limit" />
+        <label class="character-limit">
+          <input type="checkbox" name="character-limit-checkbox" />
           Set Character Limit
         </label>
+
+        <input
+          type="number"
+          name="character-limit-input"
+          aria-label="Enter a character limit"
+          inputmode="numeric"
+          autocomplete="off"
+          min="0"
+        />
 
         <output for="text-input" class="reading-time">
           Approx. reading time: &lt;1 minute
