@@ -369,6 +369,23 @@ article h3 {
   }
 }
 
+li[data-collapsed="true"] {
+  display: none;
+}
+
+li[data-collapsed="false"] {
+  display: grid;
+}
+
+.toggle-button {
+  background: transparent;
+  border: none;
+
+  &::after {
+    content: url("../assets/images/icon-chevron-down.svg");
+  }
+}
+
 /* utils */
 .visually-hidden {
   clip: rect(0 0 0 0);

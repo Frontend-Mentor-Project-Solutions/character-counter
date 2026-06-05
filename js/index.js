@@ -11,6 +11,8 @@ const characterLimitInput = document.querySelector(
   "input[name=character-limit-input]",
 );
 
+const wrapper = document.querySelector(".letter-density-wrapper");
+
 const graphemeSegmenter = new Intl.Segmenter(undefined, {
   granularity: "grapheme",
 });
@@ -133,8 +135,6 @@ function displayErrorMessage() {
 }
 
 function displayDensityTable(lettersArray) {
-  const wrapper = document.querySelector(".letter-density-wrapper");
-
   if (!lettersArray.length) {
     wrapper.innerHTML = `
     <p class="empty">
@@ -144,9 +144,9 @@ function displayDensityTable(lettersArray) {
     return;
   }
 
-  const listItems = lettersArray.map(({ letter, count, percentage }) => {
+  const listItems = lettersArray.map(({ letter, count, percentage }, index) => {
     return `
-      <li>
+      <li ${index > 4 ? "data-collapsed='true'" : ""}>
         <span class="letter">${letter}</span>
         <div class="bar" style="--pct: ${percentage}%"></div>
         <span class="percentage">${count} (${percentage}%)</span>
@@ -154,7 +154,43 @@ function displayDensityTable(lettersArray) {
     `;
   });
 
-  wrapper.innerHTML = `<ul class="bars" role="list">${listItems.join("")}</ul>`;
+  wrapper.innerHTML = `
+    <ul class="bars" role="list">
+    ${listItems.join("")}
+    </ul>`;
+
+  displayCollapsibleToggle(listItems);
+}
+
+function displayCollapsibleToggle(items) {
+  const collapsibleItems = document.querySelectorAll("[data-collapsed]");
+
+  const toggleButton = document.createElement("button");
+  toggleButton.textContent = "See more";
+  toggleButton.setAttribute("aria-expanded", "false");
+  toggleButton.className = "toggle-button h3";
+  toggleButton.addEventListener("click", () => {
+    const isCollapsed =
+      collapsibleItems[0].getAttribute("data-collapsed") === "true";
+
+    collapsibleItems.forEach((item) => {
+      if (isCollapsed) {
+        item.setAttribute("data-collapsed", "false");
+      } else {
+        item.setAttribute("data-collapsed", "true");
+      }
+    });
+
+    if (isCollapsed) {
+      toggleButton.textContent = "See less";
+      toggleButton.setAttribute("aria-expanded", "true");
+    } else {
+      toggleButton.textContent = "See more";
+      toggleButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  wrapper.appendChild(toggleButton);
 }
 
 // On page load
