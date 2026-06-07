@@ -1,0 +1,49 @@
+.page-layout {
+  --content-max-width: 990px;
+  --narrow-max-width: 510px;
+  --minimum-content-padding: clamp(1rem, -0.667rem + 5.556vw, 2rem);
+
+  --content: minmax(
+    0,
+    calc((var(--content-max-width) - var(--narrow-max-width)) * 0.5)
+  );
+  --narrow: min(
+    var(--narrow-max-width),
+    100% - var(--minimum-content-padding) * 2
+  );
+
+  display: grid;
+  grid-template-columns:
+    minmax(var(--minimum-content-padding), 1fr)
+    [content-start]
+    var(--content)
+    [narrow-start]
+    var(--narrow)
+    [narrow-end]
+    var(--content)
+    [content-end]
+    minmax(var(--minimum-content-padding), 1fr);
+
+  > * {
+    grid-column: content;
+  }
+}
+
+.narrow {
+  grid-column: narrow;
+}
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  > * {
+    flex-grow: 1;
+    flex-basis: calc((35rem - 100%) * 999);
+  }
+}
+
+.stack > * + * {
+  margin-block-start: clamp(2.5rem, 1rem + 3.125vw, 3rem);
+}

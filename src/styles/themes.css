@@ -1,0 +1,19 @@
+[data-theme='light'] {
+  color-scheme: light;
+
+  body {
+    background-image: url('../assets/images/bg-light-theme.png');
+  }
+
+  .logo {
+    content: url('../assets/images/logo-light-theme.svg');
+  }
+
+  .theme-toggle img {
+    content: url('../assets/images/icon-moon.svg');
+  }
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+}

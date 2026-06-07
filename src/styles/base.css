@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf")
+    format("truetype");
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+  background-image: url("../assets/images/bg-dark-theme.png");
+}
+
+h1,
+.h1 {
+  font-size: clamp(2.5rem, 0rem + 8.333vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h3,
+.h3,
+textarea {
+  font-size: 1.25rem;
+  font-weight: 400;
+}

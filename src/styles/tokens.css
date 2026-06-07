@@ -1,0 +1,42 @@
+:root {
+  color-scheme: light dark;
+
+  --clr-neutral-900: hsl(233 18 9);
+  --clr-neutral-800: hsl(235 14 15);
+  --clr-neutral-700: hsl(235 12 19);
+  --clr-neutral-600: hsl(234 14 29);
+
+  --clr-neutral-200: hsl(240 26 92);
+  --clr-neutral-100: hsl(240 24 96);
+  --clr-neutral-0: hsl(0 0 100);
+
+  --clr-purple-400: hsl(274 90 80);
+  --clr-purple-500: hsl(274 90 73);
+
+  --clr-yellow-500: hsl(37 100 50);
+
+  --clr-orange-500: hsl(15 99 67);
+  --clr-orange-800: hsl(15 99 43);
+
+  --text: light-dark(var(--clr-neutral-900), var(--clr-neutral-200));
+
+  --bg-main: light-dark(var(--clr-neutral-100), var(--clr-neutral-800));
+
+  --bg-accent-1: var(--clr-purple-400);
+  --bg-accent-2: var(--clr-yellow-500);
+  --bg-accent-3: var(--clr-orange-500);
+
+  --bg-main-hover: light-dark(var(--clr-neutral-200), var(--clr-neutral-600));
+
+  --border: light-dark(var(--clr-neutral-200), var(--clr-neutral-700));
+
+  --checkbox-border-hover: light-dark(
+    var(--clr-neutral-600),
+    var(--clr-neutral-0)
+  );
+
+  --primary: var(--clr-purple-400);
+  --primary-active: var(--clr-purple-500);
+
+  --error: light-dark(var(--clr-orange-800), var(--clr-orange-500));
+}
