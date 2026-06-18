@@ -1,4 +1,18 @@
-:root:has(.theme-toggle input:not(:checked)) {
+/* System default */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Explicit overrides */
+:root[data-theme="light"] {
   color-scheme: light;
 
   body {
@@ -10,6 +24,6 @@
   }
 }
 
-:root:has(.theme-toggle input:checked) {
+:root[data-theme="dark"] {
   color-scheme: dark;
 }

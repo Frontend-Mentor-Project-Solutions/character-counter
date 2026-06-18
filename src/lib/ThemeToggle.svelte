@@ -1,7 +1,16 @@
 <script>
   import ThemeIcon from "./Icons/ThemeIcon.svelte"
 
-  let isDarkMode = $state(false)
+  const saved = localStorage.getItem("theme")
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+  let isDarkMode = $state(saved ? saved === "dark" : prefersDark)
+
+  $effect(() => {
+    const theme = isDarkMode ? "dark" : "light"
+    localStorage.setItem("theme", theme)
+    document.documentElement.setAttribute("data-theme", theme)
+  })
 </script>
 
 <label class="theme-toggle">
