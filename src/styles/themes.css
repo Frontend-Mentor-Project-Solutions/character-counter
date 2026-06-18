@@ -1,19 +1,15 @@
-[data-theme='light'] {
+:root:has(.theme-toggle input:not(:checked)) {
   color-scheme: light;
 
   body {
-    background-image: url('../assets/images/bg-light-theme.png');
+    background-image: url("../assets/images/bg-light-theme.png");
   }
 
   .logo {
-    content: url('../assets/images/logo-light-theme.svg');
-  }
-
-  .theme-toggle img {
-    content: url('../assets/images/icon-moon.svg');
+    content: url("../assets/images/logo-light-theme.svg");
   }
 }
 
-[data-theme='dark'] {
+:root:has(.theme-toggle input:checked) {
   color-scheme: dark;
 }

@@ -1,4 +1,5 @@
 <script>
+  import ErrorIcon from "./Icons/ErrorIcon.svelte"
   import { analysis } from "./modules/text-analysis.svelte"
   import { validation } from "./modules/validation.svelte"
 </script>
@@ -10,7 +11,13 @@
     aria-label="Enter text to count characters, words, and sentences"
     placeholder="Start typing here... (or past your text)"
   ></textarea>
-  <span class="error-message">{validation.errorMessage}</span>
+
+  {#if validation.isInvalid}
+    <span class="error-message">
+      <ErrorIcon />
+      {validation.errorMessage}
+    </span>
+  {/if}
 </div>
 
 <style>

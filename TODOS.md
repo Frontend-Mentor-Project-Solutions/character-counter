@@ -1,0 +1,7 @@
+- [ ] implement theme logic
+- [ ] unify validation styles (textarea + input)
+- [ ] improve focus styles
+- [ ] improve icon handling
+- [x] change theme toggle to checkbox
+- [ ] hover styles
+- [ ] tokenize border-radii

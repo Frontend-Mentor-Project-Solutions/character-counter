@@ -3,13 +3,19 @@
   import { validation } from "./modules/validation.svelte"
 </script>
 
-<label class="exclude-spaces">
-  <input type="checkbox" name="exclude-spaces" bind:checked={analysis.excludeSpaces} />
+<label class="form-control">
+  <input
+    class="checkbox"
+    type="checkbox"
+    name="exclude-spaces"
+    bind:checked={analysis.excludeSpaces}
+  />
   Exclude Spaces
 </label>
 
-<label class="character-limit">
+<label class="form-control">
   <input
+    class="checkbox"
     type="checkbox"
     name="character-limit-checkbox"
     bind:checked={validation.characterLimitEnabled}

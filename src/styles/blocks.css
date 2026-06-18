@@ -40,6 +40,21 @@ header {
   padding: 0.75rem;
   cursor: pointer;
   background-color: var(--bg-main);
+  position: relative;
+  display: flex;
+
+  &:focus-within {
+    /* add focus styles here */
+  }
+
+  input {
+    appearance: none;
+    position: absolute;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
 }
 
 h1 {
@@ -65,14 +80,14 @@ textarea {
   }
 }
 
-label {
+.form-control {
   display: grid;
   grid-template-columns: 1em auto;
   gap: 0.625em;
   align-items: center;
 }
 
-input[type="checkbox"] {
+.checkbox {
   -webkit-appearance: none;
   appearance: none;
   font: inherit;

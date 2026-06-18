@@ -3,15 +3,18 @@
   import OptionsPanel from "./lib/OptionsPanel.svelte"
   import StatCards from "./lib/StatCards.svelte"
   import Textarea from "./lib/Textarea.svelte"
+  import ThemeToggle from "./lib/ThemeToggle.svelte"
 </script>
 
 <main class="page-layout stack">
   <header>
     <img class="logo" src="assets/images/logo-dark-theme.svg" alt="Character Counter Logo" />
 
-    <button class="theme-toggle">
+    <!-- <button class="theme-toggle">
       <img src="assets/images/icon-sun.svg" alt="" />
-    </button>
+    </button> -->
+
+    <ThemeToggle />
   </header>
 
   <h1 class="narrow">Analyze your text in real-time.</h1>
