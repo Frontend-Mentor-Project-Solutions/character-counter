@@ -23,5 +23,6 @@
 <style>
   .invalid {
     border-color: var(--error);
+    box-shadow: 0 0 8px var(--error);
   }
 </style>

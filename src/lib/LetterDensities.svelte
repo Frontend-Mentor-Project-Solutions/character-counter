@@ -19,7 +19,7 @@
       {/each}
     </ul>
 
-    {#if analysis.letterStats().length > 4}
+    {#if analysis.letterStats().length > 5}
       <button
         class="collapse-toggle h3"
         aria-expanded={!collapsed}

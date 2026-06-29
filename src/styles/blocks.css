@@ -23,8 +23,6 @@
   }
 }
 
-/* components */
-
 header {
   display: grid;
   grid-template-columns: auto auto;
@@ -44,7 +42,8 @@ header {
   display: flex;
 
   &:focus-within {
-    /* add focus styles here */
+    outline: 2px solid var(--primary-active);
+    outline-offset: -2px;
   }
 
   input {
@@ -72,12 +71,6 @@ textarea {
   &::placeholder {
     color: currentColor;
   }
-
-  &:focus,
-  &:focus-visible {
-    outline: 2px solid var(--primary-active);
-    outline-offset: -2px;
-  }
 }
 
 .form-control {
@@ -85,6 +78,19 @@ textarea {
   grid-template-columns: 1em auto;
   gap: 0.625em;
   align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    .checkbox {
+      &:not(:checked) {
+        border-color: var(--checkbox-border-hover);
+      }
+
+      &:checked::before {
+        background-color: var(--primary-active);
+      }
+    }
+  }
 }
 
 .checkbox {
@@ -99,6 +105,7 @@ textarea {
   display: grid;
   place-content: center;
   position: relative;
+  cursor: inherit;
 
   &::before {
     content: "";
@@ -126,6 +133,18 @@ textarea {
       transform: scale(1);
     }
   }
+
+  &:focus-visible {
+    &:not(:checked) {
+      outline: 2px solid var(--primary-active);
+      outline-offset: -2px;
+    }
+
+    &:checked {
+      outline: 1px solid var(--clr-neutral-0);
+      outline-offset: -3px;
+    }
+  }
 }
 
 input[type="number"] {
@@ -138,19 +157,26 @@ input[type="number"] {
   padding-inline-start: 0.75rem;
   background-color: transparent;
 
-  &:focus,
-  &:focus-visible {
-    outline: 2px solid var(--primary-active);
-    outline-offset: -2px;
-  }
-
   &:invalid {
     border-color: var(--error);
   }
 }
 
+textarea,
+input[type="number"] {
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid var(--primary-active);
+    outline-offset: -1px;
+    box-shadow: 0 0 8px var(--primary-active);
+  }
+}
+
 .error-message {
   color: var(--error);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 article {
@@ -226,4 +252,14 @@ article h3 {
 .collapse-toggle {
   background: transparent;
   border: none;
+  margin-block-start: 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-active);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
 }

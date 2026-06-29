@@ -1,7 +1,2 @@
-- [ ] implement theme logic
-- [ ] unify validation styles (textarea + input)
-- [ ] improve focus styles
-- [ ] improve icon handling
-- [x] change theme toggle to checkbox
-- [ ] hover styles
-- [ ] tokenize border-radii
+- [ ] implement approx reading time
+- [ ] view transition for theme switch
