@@ -181,7 +181,7 @@ input[type="number"] {
 
 article {
   color-scheme: light;
-  color: var(--text);
+  color: var(--clr-neutral-900);
 
   display: grid;
   gap: 0.875rem;
