@@ -7,7 +7,6 @@
   let isDarkMode = $state(saved ? saved === "dark" : prefersDark)
 
   $effect(() => {
-    console.log("effect ran")
     const theme = isDarkMode ? "dark" : "light"
     localStorage.setItem("theme", theme)
 
