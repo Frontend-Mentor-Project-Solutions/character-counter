@@ -13,13 +13,7 @@ This is a solution to the [Character counter challenge on Frontend Mentor](https
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
-    - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
-    - [AI Collaboration](#ai-collaboration)
-  - [Author](#author)
-  - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -39,95 +33,41 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./public/assets/images/solution-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: https://clinquant-smakager-ca6d7f.netlify.app/
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
+- CSS custom properties (token architecture)
+- Flexbox and CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [CUBE CSS](https://cube.fyi/) methodology
+- [Svelte 5](https://svelte.dev/) - reactive framework
+- [Vite](https://vitejs.dev/) - build tool
+- [Intl.Segmenter API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) - text segmentation
+- [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) - theme switch animation
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+**Starting with semantic HTML and CSS first** — I began with HTML structure and CSS layout using CUBE CSS principles, focusing on tokens and spacing before adding any JavaScript logic.
 
-To see how you can add code snippets, see below:
+**The Intl.Segmenter API** — This was a game-changer for accurate text segmentation (graphemes, words, sentences) compared to generic `split()` and `slice()` methods. It handles multi-codepoint characters and different languages correctly.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+**Complexity led to Svelte** — I initially wrote vanilla JavaScript, but as state and logic grew (multiple counters, validation, theme state), managing DOM updates and state became tedious, especially with bar renderings. Moving to Svelte v5 made reactive updates and component communication much cleaner.
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+**Svelte v5 features** — First time using the latest version after using v3 years ago. The data binding for input controls (`bind:value`) and reactive variables (`$derived`) made managing form state and derived statistics feel natural and concise.
 
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+**Advanced CSS for theming** — Used `color-scheme` CSS property combined with `light-dark()` to create dynamic token variables, then layered a checkbox-based toggle to override the user's OS preference. Added View Transitions API to smoothly animate the theme switch.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-### AI Collaboration
-
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
-
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- [MDN: Intl.Segmenter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) — Proper text segmentation for graphemes, words, and sentences across different languages and character sets.
+- [MDN: View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) — Smooth animations between DOM state changes, perfect for theme switching.
+- [Svelte 5 Documentation](https://svelte.dev/) — Reactive variables and derived state management made complex UI logic straightforward.
+- [CUBE CSS by Andy Bell](https://cube.fyi/) — Token-driven, scalable CSS methodology that scales from small components to entire design systems.
