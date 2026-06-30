@@ -7,9 +7,18 @@
   let isDarkMode = $state(saved ? saved === "dark" : prefersDark)
 
   $effect(() => {
+    console.log("effect ran")
     const theme = isDarkMode ? "dark" : "light"
     localStorage.setItem("theme", theme)
-    document.documentElement.setAttribute("data-theme", theme)
+
+    if (!document.startViewTransition) {
+      document.documentElement.setAttribute("data-theme", theme)
+      return
+    }
+
+    document.startViewTransition(() => {
+      document.documentElement.setAttribute("data-theme", theme)
+    })
   })
 </script>
 
