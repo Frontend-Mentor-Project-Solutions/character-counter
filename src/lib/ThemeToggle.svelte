@@ -14,6 +14,11 @@
 </script>
 
 <label class="theme-toggle">
-  <input bind:checked={isDarkMode} type="checkbox" name="dark-mode-toggle" />
+  <input
+    bind:checked={isDarkMode}
+    type="checkbox"
+    name="dark-mode-toggle"
+    aria-label={`set ${isDarkMode ? "light" : "dark"} mode`}
+  />
   <ThemeIcon {isDarkMode} />
 </label>

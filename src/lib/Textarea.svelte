@@ -13,7 +13,7 @@
   ></textarea>
 
   {#if validation.isInvalid}
-    <span class="error-message">
+    <span class="error-message" aria-live="polite">
       <ErrorIcon />
       {validation.errorMessage}
     </span>

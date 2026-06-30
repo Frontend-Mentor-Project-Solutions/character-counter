@@ -34,3 +34,5 @@
     bind:value={validation.characterLimitValue}
   />
 {/if}
+
+<span class="reading-time"> Approx. reading time: {analysis.readingTime()}</span>

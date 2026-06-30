@@ -1,2 +1,1 @@
-- [ ] implement approx reading time
 - [ ] view transition for theme switch

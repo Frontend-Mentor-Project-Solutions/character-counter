@@ -25,6 +25,19 @@ function createTextAnalysis() {
     [...sentenceSegmenter.segment(text)].filter((seg) => seg.segment.trim() !== "").length
   )
 
+  let readingTime = $derived(() => {
+    const wordsPerMinute = 200
+    const minutes = Math.floor(wordCount / wordsPerMinute)
+
+    if (minutes < 1) {
+      return "<1 minute"
+    } else if (minutes === 1) {
+      return "1 minute"
+    } else {
+      return `${minutes} minutes`
+    }
+  })
+
   let letterStats = $derived(() => {
     const letters = [...graphemeSegmenter.segment(text)]
       .filter(({ segment }) => /^\p{L}\p{M}*$/u.test(segment))
@@ -71,6 +84,9 @@ function createTextAnalysis() {
     },
     get sentenceCount() {
       return countFormat.format(sentenceCount)
+    },
+    get readingTime() {
+      return readingTime
     },
     get letterStats() {
       return letterStats

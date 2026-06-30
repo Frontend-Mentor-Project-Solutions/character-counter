@@ -10,10 +10,6 @@
   <header>
     <img class="logo" src="assets/images/logo-dark-theme.svg" alt="Character Counter Logo" />
 
-    <!-- <button class="theme-toggle">
-      <img src="assets/images/icon-sun.svg" alt="" />
-    </button> -->
-
     <ThemeToggle />
   </header>
 
@@ -23,8 +19,6 @@
     <Textarea />
 
     <OptionsPanel />
-
-    <output for="text-input" class="reading-time"> Approx. reading time: &lt;1 minute </output>
   </section>
 
   <StatCards />
